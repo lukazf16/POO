@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Formulario</h1>
+    
+    <p id="mensajeError" style="color: red; display: none;">¡Crack! Por favor rellena el cuestionario, no seas flojo.</p>
+
+    <form id="miFormulario">
+        
+        <label for="nombre">1. Nombre:</label>
+        <input type="text" id="nombre"><br><br>
+
+        <label for="edad">2. Edad:</label>
+        <input type="number" id="edad"><br><br>
+
+        <label for="area">3. Área de TI que más te interesa:</label>
+        <select id="area">
+            <option value="">Selecciona...</option>
+            <option value="Ciberseguridad">Ciberseguridad</option>
+            <option value="Cloud Computing">Cloud Computing</option>
+            <option value="Otra">Otra</option>
+        </select><br><br>
+
+        <label for="lenguaje">4. Lenguaje de programación que estudias (ej. JavaScript):</label>
+        <input type="text" id="lenguaje"><br><br>
+
+        <label for="anime">5. Anime favorito:</label>
+        <input type="text" id="anime"><br><br>
+
+        <label for="guitarra">6. ¿Tocas la guitarra?</label>
+        <select id="guitarra">
+            <option value="">Selecciona...</option>
+            <option value="Sí, eléctrica">Sí</option>
+            <option value="Apenas estoy aprendiendo">Apenas estoy aprendiendo</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="audio">7. Formato de audio preferido para escuchar música:</label>
+        <select id="audio">
+            <option value="">Selecciona...</option>
+            <option value="FLAC (Alta fidelidad)">FLAC (Alta fidelidad)</option>
+            <option value="MP3 o Streaming normal">MP3 o Streaming normal</option>
+        </select><br><br>
+
+        <label for="juegos">8. ¿Juegas videojuegos en PC?</label>
+        <select id="juegos">
+            <option value="">Selecciona...</option>
+            <option value="Sí">Sí</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="certificacion">9. Certificación en la que te gustaría prepararte (ej. Cisco CCNA):</label>
+        <input type="text" id="certificacion"><br><br>
+
+        <label for="redes">10. ¿Te gustan las redes de computadoras?</label>
+        <select id="redes">
+            <option value="">Selecciona...</option>
+            <option value="Sí me gustan">Sí me gustan</option>
+            <option value="No mucho">No mucho</option>
+        </select><br><br>
+
+        <button type="button" onclick="guardar()">Procesar Datos</button>
+        <button type="button" onclick="borrar()">Borrar Resultados</button>
+        
+    </form>
+
+    <hr> <div id="resultadoFinal"></div>
+
+    <script>
+    function guardar() { 
+        const nombre = document.getElementById("nombre").value;
+        const edad = document.getElementById("edad").value;
+        const area = document.getElementById("area").value;
+        const lenguaje = document.getElementById("lenguaje").value;
+        const anime = document.getElementById("anime").value;
+        const guitarra = document.getElementById("guitarra").value;
+        const audio = document.getElementById("audio").value;
+        const juegos = document.getElementById("juegos").value;
+        const certificacion = document.getElementById("certificacion").value;
+        const redes = document.getElementById("redes").value;
+
+        if (nombre == "" || edad == "" || area == "" || lenguaje == "" || anime == "" || guitarra == "" || audio == "" || juegos == "" || certificacion == "" || redes == "") {
+            document.getElementById("mensajeError").style.display = "block";
+            return; 
+        }
+
+        document.getElementById("mensajeError").style.display = "none";
+
+        const resultado = "<p>Nombre: " + nombre + "</p>" +
+                          "<p>Edad: " + edad + "</p>" +
+                          "<p>Área de TI: " + area + "</p>" +
+                          "<p>Lenguaje: " + lenguaje + "</p>" +
+                          "<p>Anime favorito: " + anime + "</p>" +
+                          "<p>Guitarra: " + guitarra + "</p>" +
+                          "<p>Audio: " + audio + "</p>" +
+                          "<p>Juegos: " + juegos + "</p>" +
+                          "<p>Certificación: " + certificacion + "</p>" +
+                          "<p>Redes: " + redes + "</p>";
+
+        document.getElementById("resultadoFinal").innerHTML = resultado;
+        document.getElementById("miFormulario").reset();
+    }
+
+    function borrar() {
+        document.getElementById("resultadoFinal").innerHTML = "";
+        document.getElementById("miFormulario").reset();
+        document.getElementById("mensajeError").style.display = "none";
+    }
+    console.log("Si funciona.");
+    </script>
+    
+</body>
+</html>
