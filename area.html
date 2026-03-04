@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="area.css">
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <label for="menu">Selecciona una Calculadora:</label>
+    <select id="menu">
+    <option value="nada">-- Elige una opción --</option>
+    <option value="triangulo">Área de Triángulo</option>
+    <option value="esfera">Volumen de Esfera</option>
+    <option value="money">Pesos a Dólares</option>
+    </select>
+
+    <div id="seccion-triangulo" class="seccion-calculadora oculto">
+    <h2>Área de Triángulo</h2>
+    <input type="number" id="baseTriangulo" placeholder="Base">
+    <input type="number" id="alturaTriangulo" placeholder="Altura">
+    <button id="btnTriangulo">Calcular</button>
+    <div id="resultadoTriangulo"></div>
+    </div>
+
+    <div id="seccion-esfera" class="seccion-calculadora oculto">
+    <h2>Volumen de Esfera</h2>
+    <input type="number" id="radioEsfera" placeholder="Escribe el radio:">
+    <button id="btnEsfera">Calcular</button>
+    <div id="resultadoEsfera"></div>
+    </div>
+
+    <div id="seccion-money" class="seccion-calculadora oculto">
+    <h2>Pesos a Dólares</h2>
+    <input type="number" id="pesos" placeholder="Cantidad en MXN">
+    <input type="number" id="cambio" placeholder="Tipo de Cambio (eje.0.050)">
+    <button id="btnpesosadolares">Calcular</button>
+    <div id="conversion">
+    </div>
+    <script src="area.js"></script>
+</body>
+</html>
